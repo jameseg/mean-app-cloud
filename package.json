@@ -3,8 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run",
     "build": "ng build",
+    "backend:build": "tsc -p ./backend/tsconfig.json",
+    "backend:prod": "npm run backend:build && node ./backend/dist/index.js",
+    "backend:dev": "tsc -p ./backend/tsconfig.json --watch & nodemon ./backend/dist/index.js",
+    "frontend:build": "ng build",
+    "frontend:prod": "npm run -s frontend:build && npm run -s frontend:serve",
+    "frontend:dev": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:mean-app-cloud": "node dist/mean-app-cloud/server/server.mjs"
@@ -39,6 +45,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "~5.5.2"
   }
 }

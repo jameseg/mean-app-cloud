@@ -8,9 +8,11 @@
     "backend:build": "tsc -p ./backend/tsconfig.json",
     "backend:prod": "npm run backend:build && node ./backend/dist/index.js",
     "backend:dev": "tsc -p ./backend/tsconfig.json --watch & nodemon ./backend/dist/index.js",
+    "backend:deploy": "gcloud run deploy backend --source ./backend",
     "frontend:build": "ng build",
     "frontend:prod": "npm run -s frontend:build && npm run -s frontend:serve",
     "frontend:dev": "ng serve",
+    "frontend:deploy": "gcloud run deploy frontend --source .",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:mean-app-cloud": "node dist/mean-app-cloud/server/server.mjs"
@@ -30,6 +32,7 @@
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "typescript": "~5.5.2",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -45,7 +48,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "~5.5.2"
+    "ts-node-dev": "^2.0.0"
   }
 }

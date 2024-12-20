@@ -11,7 +11,7 @@
     "backend:build": "tsc -p backend/tsconfig.json",
     "backend:prod": "npm run backend:build && node --trace-warnings dist/backend/server.js",
     "backend:dev": "tsc -p backend/tsconfig.json --watch & nodemon backend/dist/index.js",
-    "backend:deploy": "gcloud run deploy backend --source",
+    "backend:deploy": "gcloud run deploy backend --source .",
     "frontend:clean": "rm -rf dist/  node_modules  package-lock.json",
     "frontend:build": "ng build",
     "frontend:prod": "npm run -s frontend:build && npm run -s frontend:serve",
